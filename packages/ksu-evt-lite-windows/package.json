@@ -1,0 +1,27 @@
+{
+  "name": "ksu-evt-lite-windows",
+  "displayName": "KSU EVT Lite for Windows",
+  "description": "The essential VS Code extensions for current KSU EVT repositories on Windows.",
+  "version": "0.1.0",
+  "publisher": "ksu-evt",
+  "license": "MIT",
+  "files": ["README.md", "LICENSE"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Extension Packs", "Education"],
+  "keywords": ["KSU", "EVT", "PlatformIO", "Teensy", "Windows"],
+  "extensionPack": [
+    "DavidAnson.vscode-markdownlint",
+    "GitHub.vscode-pull-request-github",
+    "platformio.platformio-ide"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KSU-Electric-Vehicle-Team/vscode-extension-packs.git"
+  },
+  "homepage": "https://github.com/KSU-Electric-Vehicle-Team/vscode-extension-packs#readme",
+  "bugs": {
+    "url": "https://github.com/KSU-Electric-Vehicle-Team/vscode-extension-packs/issues"
+  }
+}

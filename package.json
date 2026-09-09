@@ -1,0 +1,14 @@
+{
+  "name": "ksu-evt-vscode-extension-packs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Build and validation tools for the KSU EVT VS Code extension packs.",
+  "scripts": {
+    "check": "node scripts/check-packs.mjs",
+    "check:marketplace": "node scripts/check-marketplace.mjs",
+    "package": "node scripts/package-packs.mjs"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "3.9.2"
+  }
+}

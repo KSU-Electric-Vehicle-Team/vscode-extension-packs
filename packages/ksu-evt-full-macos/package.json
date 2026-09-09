@@ -1,0 +1,34 @@
+{
+  "name": "ksu-evt-full-macos",
+  "displayName": "KSU EVT Full for macOS",
+  "description": "The complete VS Code setup for KSU EVT firmware work on macOS.",
+  "version": "0.1.0",
+  "publisher": "ksu-evt",
+  "license": "MIT",
+  "files": ["README.md", "LICENSE"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Extension Packs", "Education"],
+  "keywords": ["KSU", "EVT", "PlatformIO", "Teensy", "macOS", "embedded"],
+  "extensionPack": [
+    "alexnesnes.teleplot",
+    "cschlosser.doxdocgen",
+    "DavidAnson.vscode-markdownlint",
+    "eamodio.gitlens",
+    "GitHub.vscode-pull-request-github",
+    "jeff-hykin.better-shellscript-syntax",
+    "marus25.cortex-debug",
+    "platformio.platformio-ide",
+    "samubarb.vscode-doxyfile",
+    "zixuanwang.linkerscript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KSU-Electric-Vehicle-Team/vscode-extension-packs.git"
+  },
+  "homepage": "https://github.com/KSU-Electric-Vehicle-Team/vscode-extension-packs#readme",
+  "bugs": {
+    "url": "https://github.com/KSU-Electric-Vehicle-Team/vscode-extension-packs/issues"
+  }
+}
