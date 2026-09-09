@@ -1,6 +1,6 @@
 {
   "name": "ksu-evt-vscode-extension-packs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Build and validation tools for the KSU EVT VS Code extension packs.",
   "scripts": {

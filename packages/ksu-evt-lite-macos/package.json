@@ -1,19 +1,20 @@
 {
   "name": "ksu-evt-lite-macos",
   "displayName": "KSU EVT Lite for macOS",
-  "description": "The essential VS Code extensions for current KSU EVT repositories on macOS.",
-  "version": "0.1.0",
+  "description": "The shared VS Code essentials for KSU EVT work on macOS.",
+  "version": "0.2.0",
   "publisher": "ksu-evt",
   "license": "MIT",
   "files": ["README.md", "LICENSE"],
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.95.0"
   },
   "categories": ["Extension Packs", "Education"],
-  "keywords": ["KSU", "EVT", "PlatformIO", "Teensy", "macOS"],
+  "keywords": ["KSU", "EVT", "PlatformIO", "Python", "Teensy", "macOS"],
   "extensionPack": [
     "DavidAnson.vscode-markdownlint",
     "GitHub.vscode-pull-request-github",
+    "ms-python.python",
     "platformio.platformio-ide"
   ],
   "repository": {

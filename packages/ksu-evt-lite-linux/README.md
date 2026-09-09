@@ -1,6 +1,7 @@
 # KSU EVT Lite for Linux
 
-Installs the three extensions needed for the active KSU EVT repositories:
-PlatformIO, GitHub Pull Requests and Issues, and markdownlint.
+Installs the shared KSU EVT essentials: PlatformIO, Python, GitHub Pull Requests
+and Issues, and markdownlint.
 
-Choose the Full pack if you work on firmware debugging or documentation.
+Choose the Full pack for Jupyter, Django, Python utilities, firmware debugging,
+or documentation.

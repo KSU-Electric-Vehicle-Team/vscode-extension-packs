@@ -1,9 +1,11 @@
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 
 const platforms = ["windows", "macos", "linux"];
 const tiers = ["lite", "full"];
 const packagesDirectory = new URL("../packages/", import.meta.url);
+const rootManifest = JSON.parse(
+  await readFile(new URL("../package.json", import.meta.url), "utf8"),
+);
 
 const bannedExtensions = new Map([
   ["ms-vscode.cpptools", "PlatformIO already installs it"],
@@ -11,6 +13,13 @@ const bannedExtensions = new Map([
   ["mcu-debug.memory-view", "Cortex-Debug already installs it"],
   ["mcu-debug.peripheral-viewer", "Cortex-Debug already installs it"],
   ["mcu-debug.rtos-views", "Cortex-Debug already installs it"],
+  ["ms-python.debugpy", "Python already installs it"],
+  ["ms-python.vscode-pylance", "Python already installs it"],
+  ["ms-python.vscode-python-envs", "Python already installs it"],
+  ["ms-toolsai.jupyter-keymap", "Jupyter already installs it"],
+  ["ms-toolsai.jupyter-renderers", "Jupyter already installs it"],
+  ["ms-toolsai.vscode-jupyter-cell-tags", "Jupyter already installs it"],
+  ["ms-toolsai.vscode-jupyter-slideshow", "Jupyter already installs it"],
   ["ms-vscode-remote.vscode-remote-extensionpack", "use selected remote extensions"],
   ["ms-vscode.cpptools-extension-pack", "use selected C++ extensions"],
   ["donjayamanne.python-extension-pack", "use selected Python extensions"],
@@ -19,6 +28,20 @@ const bannedExtensions = new Map([
 
 const manifests = new Map();
 const errors = [];
+const requiredLiteExtensions = [
+  "davidanson.vscode-markdownlint",
+  "github.vscode-pull-request-github",
+  "ms-python.python",
+  "platformio.platformio-ide",
+];
+const requiredFullExtensions = [
+  "batisteo.vscode-django",
+  "etmoffat.pip-packages",
+  "ms-python.isort",
+  "ms-toolsai.jupyter",
+  "njpwerner.autodocstring",
+  "wholroyd.jinja",
+];
 
 for (const platform of platforms) {
   for (const tier of tiers) {
@@ -40,6 +63,11 @@ for (const platform of platforms) {
 
     if (manifest.name !== packageName) {
       errors.push(`${packageName}: manifest name is ${manifest.name}`);
+    }
+    if (manifest.version !== rootManifest.version) {
+      errors.push(
+        `${packageName}: version ${manifest.version} does not match root ${rootManifest.version}`,
+      );
     }
 
     if (!Array.isArray(manifest.extensionPack) || manifest.extensionPack.length === 0) {
@@ -71,6 +99,15 @@ for (const platform of platforms) {
       }
       if (extension === "ms-vscode-remote.remote-wsl" && platform !== "windows") {
         errors.push(`${packageName}: WSL belongs only in a Windows pack`);
+      }
+    }
+
+    const required = tier === "lite"
+      ? requiredLiteExtensions
+      : [...requiredLiteExtensions, ...requiredFullExtensions];
+    for (const extension of required) {
+      if (!unique.has(extension)) {
+        errors.push(`${packageName}: missing required extension ${extension}`);
       }
     }
   }
