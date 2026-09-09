@@ -12,15 +12,17 @@ VSIX file from the latest GitHub release.
 | macOS | `ksu-evt-lite-macos` | `ksu-evt-full-macos` |
 | Linux | `ksu-evt-lite-linux` | `ksu-evt-full-linux` |
 
-Lite installs the extensions needed by the active public repositories:
+Lite installs the shared team essentials:
 
 - GitHub Pull Requests and Issues
 - markdownlint
 - PlatformIO IDE
+- Python
 
-Full adds firmware documentation, Git history, telemetry viewing, linker-script
-editing, shell-script syntax, and Cortex debugging. The Windows Full pack also
-adds PowerShell and WSL support.
+Full adds Django, Jupyter, import sorting, Python package inspection,
+documentation helpers, Git history, telemetry viewing, linker-script editing,
+shell-script syntax, and Cortex debugging. The Windows Full pack also adds
+PowerShell and WSL support.
 
 macOS and Linux currently use the same extension list. They remain separate
 packages so students have one obvious download and the lists can diverge later
@@ -38,7 +40,7 @@ without changing the onboarding flow.
 You can also install a downloaded pack from a terminal:
 
 ```sh
-code --install-extension ./ksu-evt-lite-windows-0.1.0.vsix
+code --install-extension ./ksu-evt-lite-windows-0.2.0.vsix
 ```
 
 ## Why the old list was reduced
@@ -51,11 +53,12 @@ The current packs rely on declared extension dependencies:
 
 - PlatformIO installs `ms-vscode.cpptools`.
 - Cortex-Debug installs its `mcu-debug.*` helpers.
+- Python installs Pylance, debugpy, and Python Environments.
+- Jupyter installs its keymap, renderers, cell tags, and slideshow helpers.
 
-Python, Jupyter, Docker, Django, Live Server, ROS, CMake, LLDB, and remote-host
-tools are not defaults because no active KSU EVT repository currently requires
-them. A repository can recommend a project-specific extension in its own
-`.vscode/extensions.json` when that changes.
+Docker, Live Server, ROS, CMake, LLDB, and remote-host tools are not defaults.
+A repository can recommend a project-specific extension in its own
+`.vscode/extensions.json` when needed.
 
 ## Maintain the packs
 
@@ -69,5 +72,5 @@ npm run package
 ```
 
 `npm run package` writes the six VSIX files to `dist/`. Pushing a version tag
-such as `v0.1.0` runs the release workflow and attaches those files to a GitHub
+such as `v0.2.0` runs the release workflow and attaches those files to a GitHub
 release.

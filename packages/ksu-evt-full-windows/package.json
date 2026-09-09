@@ -1,28 +1,35 @@
 {
   "name": "ksu-evt-full-windows",
   "displayName": "KSU EVT Full for Windows",
-  "description": "The complete VS Code setup for KSU EVT firmware work on Windows.",
-  "version": "0.1.0",
+  "description": "The complete VS Code setup for KSU EVT Python and firmware work on Windows.",
+  "version": "0.2.0",
   "publisher": "ksu-evt",
   "license": "MIT",
   "files": ["README.md", "LICENSE"],
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.106.0"
   },
   "categories": ["Extension Packs", "Education"],
-  "keywords": ["KSU", "EVT", "PlatformIO", "Teensy", "Windows", "embedded"],
+  "keywords": ["KSU", "EVT", "PlatformIO", "Python", "Teensy", "Windows", "embedded"],
   "extensionPack": [
     "alexnesnes.teleplot",
+    "batisteo.vscode-django",
     "cschlosser.doxdocgen",
     "DavidAnson.vscode-markdownlint",
     "eamodio.gitlens",
+    "etmoffat.pip-packages",
     "GitHub.vscode-pull-request-github",
     "jeff-hykin.better-shellscript-syntax",
     "marus25.cortex-debug",
+    "ms-python.isort",
+    "ms-python.python",
+    "ms-toolsai.jupyter",
     "ms-vscode-remote.remote-wsl",
     "ms-vscode.PowerShell",
+    "njpwerner.autodocstring",
     "platformio.platformio-ide",
     "samubarb.vscode-doxyfile",
+    "wholroyd.jinja",
     "zixuanwang.linkerscript"
   ],
   "repository": {

@@ -2,7 +2,7 @@
 
 This audit compares the old shared extension list with the active repositories
 in the `KSU-Electric-Vehicle-Team` organization. It was last checked on
-September 8, 2026.
+September 9, 2026.
 
 ## Repository evidence
 
@@ -32,7 +32,7 @@ templates. It does not add another language or build system.
 The archived repositories contain older PlatformIO and ROS 2 work. Archived
 code does not control the default setup for new members. If ROS development
 becomes active again, it should get its own reviewed ROS pack instead of adding
-Python, Jupyter, Docker, WSL, and ROS tools to every firmware installation.
+Docker and ROS tools to every installation.
 
 ## Included extensions
 
@@ -40,16 +40,24 @@ Lite contains only the shared requirements:
 
 - `DavidAnson.vscode-markdownlint`
 - `GitHub.vscode-pull-request-github`
+- `ms-python.python`
 - `platformio.platformio-ide`
 
-Full retains useful firmware and maintainer tools from the old list:
+Full retains useful firmware and maintainer tools from the old list and adds
+the broader Python workflow used by the team:
 
 - `alexnesnes.teleplot`
+- `batisteo.vscode-django`
 - `cschlosser.doxdocgen`
 - `eamodio.gitlens`
+- `etmoffat.pip-packages`
 - `jeff-hykin.better-shellscript-syntax`
 - `marus25.cortex-debug`
+- `ms-python.isort`
+- `ms-toolsai.jupyter`
+- `njpwerner.autodocstring`
 - `samubarb.vscode-doxyfile`
+- `wholroyd.jinja`
 - `zixuanwang.linkerscript`
 
 Windows Full also contains `ms-vscode.PowerShell` and
@@ -61,9 +69,10 @@ Windows Full also contains `ms-vscode.PowerShell` and
   The packs do not list C/C++ twice.
 - `marus25.cortex-debug` declares all four `mcu-debug.*` helpers as
   dependencies. The packs include Cortex-Debug once.
+- `ms-python.python` bundles Pylance, debugpy, and Python Environments. The
+  packs do not list those extensions separately.
 - `ms-toolsai.jupyter` already bundles its keymap, renderers, cell tags, and
-  slideshow extensions. None are included because active repositories do not
-  use Jupyter.
+  slideshow extensions. The Full packs include Jupyter once.
 - `ranch-hand-robotics.rde-pack` already bundles the RDE ROS 2, URDF, and
   creator extensions. None are included because the ROS repository is
   archived.
@@ -75,8 +84,8 @@ Windows Full also contains `ms-vscode.PowerShell` and
 - The old Docker extension and the newer container extensions overlapped. No
   active repository has a Dockerfile or dev container, so neither belongs in
   the default packs.
-- The Python pack, Python tools, Django, Jinja, and Jupyter tools were removed.
-  No active repository uses Python as an application or notebook environment.
+- The third-party Python extension pack was removed because it overlaps the
+  selected Python, Django, Jinja, and documentation tools.
 - Both Live Server extensions were removed. No active repository is a static
   website project.
 - CMake, Makefile, LLDB, spreadsheet viewers, PDF viewers, remote-host tools,
